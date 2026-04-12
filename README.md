@@ -1,6 +1,6 @@
-<p align="center"><img src="logo.png" alt="ghost" width="120"></p>
-
 # Ghost [![Maintained by StackBlaze](https://img.shields.io/badge/maintained%20by-StackBlaze-blue)](https://stackblaze.com) [![Weekly Updates](https://img.shields.io/badge/updates-weekly-green)](https://github.com/stackblaze-templates/ghost/actions) [![Deploy on StackBlaze](https://img.shields.io/badge/Deploy%20on-StackBlaze-orange)](https://stackblaze.com)
+
+<p align="center"><img src="logo.png" alt="ghost" width="120"></p>
 
 A powerful publishing platform for blogs, newsletters, and membership sites. Ghost is a modern, open-source CMS with built-in email newsletters, memberships, and subscriptions.
 
