@@ -1,0 +1,10 @@
+{{!< default}}
+<main>
+    <h1>{{@site.title}}</h1>
+    {{#foreach posts}}
+        <article>
+            <h2><a href="{{url}}">{{title}}</a></h2>
+            <p>{{excerpt}}</p>
+        </article>
+    {{/foreach}}
+</main>
