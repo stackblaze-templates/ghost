@@ -1,0 +1,6 @@
+{
+  "name": "starter-theme",
+  "version": "1.0.0",
+  "engines": { "ghost": ">=5.0.0" },
+  "author": { "name": "StackBlaze" }
+}
