@@ -8,6 +8,10 @@ A powerful publishing platform for blogs, newsletters, and membership sites. Gho
 
 ## Local Development
 
+Copy `.env.example` to `.env` and set strong passwords before starting:
+
+    cp .env.example .env
+    # Edit .env and set MYSQL_PASSWORD and MYSQL_ROOT_PASSWORD
     docker compose up
 
 Visit http://localhost:2368 for the site and http://localhost:2368/ghost for admin.
@@ -99,6 +103,24 @@ flowchart LR
 **Best for:** Production workloads, high-traffic applications, business-critical deployments.
 
 </details>
+
+---
+
+## Security Configuration
+
+The following environment variables **must** be set to non-default values before running in production:
+
+| Variable | Description | Required |
+|---|---|---|
+| `MYSQL_PASSWORD` | MySQL password for the `ghost` user | **Yes** |
+| `MYSQL_ROOT_PASSWORD` | MySQL root password | **Yes** |
+| `GHOST_URL` | Public URL of your Ghost site (e.g. `https://example.com`) | **Yes** |
+| `MYSQL_DATABASE` | MySQL database name (default: `ghost`) | No |
+| `MYSQL_USER` | MySQL username (default: `ghost`) | No |
+
+> **Warning:** Never use the placeholder passwords from `.env.example` in production. Generate strong, random passwords (e.g. `openssl rand -base64 32`).
+
+Ghost handles its own admin setup on first run — no default admin credentials are shipped. Complete the setup wizard at `<your-url>/ghost` immediately after deployment.
 
 ---
 
