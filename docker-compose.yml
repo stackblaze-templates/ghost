@@ -1,24 +1,24 @@
 services:
   ghost:
-    image: ghost:5-alpine
+    image: ghost:6-alpine
     ports:
       - "2368:2368"
     environment:
       - database__client=mysql
       - database__connection__host=db
-      - database__connection__database=ghost
-      - database__connection__user=ghost
-      - database__connection__password=ghost
-      - url=http://localhost:2368
+      - database__connection__database=${MYSQL_DATABASE:-ghost}
+      - database__connection__user=${MYSQL_USER:-ghost}
+      - database__connection__password=${MYSQL_PASSWORD:?MYSQL_PASSWORD is required}
+      - url=${GHOST_URL:-http://localhost:2368}
     depends_on:
       - db
   db:
     image: mysql:8.0
     environment:
-      MYSQL_DATABASE: ghost
-      MYSQL_USER: ghost
-      MYSQL_PASSWORD: ghost
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-ghost}
+      MYSQL_USER: ${MYSQL_USER:-ghost}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?MYSQL_PASSWORD is required}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?MYSQL_ROOT_PASSWORD is required}
     volumes:
       - db_data:/var/lib/mysql
 volumes:
